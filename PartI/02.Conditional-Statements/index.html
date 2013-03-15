@@ -1,0 +1,435 @@
+﻿<html>
+<head>
+	<title>conditional-statements-hw</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	
+		jsConsole.writeLine("----------------------------------------------------");
+		jsConsole.writeLine("01. Write an if statement that examines two integer variables and");
+		jsConsole.writeLine(" exchanges their values if the first one is greater than the second one:");
+
+    var firstNumber = 22, secondNumber = 3, temp;
+    
+    jsConsole.writeLine("firstNumber = " + firstNumber + ", secondNumber = " + secondNumber );
+    if (firstNumber > secondNumber)
+    {
+       temp = firstNumber;
+       firstNumber = secondNumber;
+       secondNumber = temp;
+       jsConsole.writeLine("Exchange the numbers: firstNumber = " + firstNumber + ", secondNumber = "+ secondNumber);
+    }
+		jsConsole.writeLine();
+		jsConsole.writeLine("----------------------------------------------------");
+		
+	  jsConsole.writeLine("02. Write a script that shows the sign (+ or -) of the product of ");
+	  jsConsole.writeLine(" three real numbers without calculating it. Use a sequence of if statements.:");
+    
+    var thirdNumber = -10;
+    var positive = true;
+
+    if (firstNumber < 0)
+    {
+       positive = !positive;
+    }
+ 
+    if (secondNumber < 0)
+    {
+       positive = !positive;
+    }
+ 
+    if (thirdNumber < 0)
+    {
+       positive = !positive;
+    }
+    
+    jsConsole.writeLine("firstNumber = " + firstNumber);
+    jsConsole.writeLine("secondNumber = " + secondNumber);
+    jsConsole.writeLine("thirdNumber = " + thirdNumber);      
+    jsConsole.writeLine("The sign of the product is " + (positive ? '+' : '-'));
+    jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	
+	  jsConsole.writeLine("03. Write a script that finds the biggest of three integers using nested if statements.:");
+	  
+    function TheBiggestNumber()
+    {  
+      var theBiggestOne = 0;
+          
+      jsConsole.writeLine("firstNumber = " + firstNumber);
+      jsConsole.writeLine("secondNumber = " + secondNumber);
+      jsConsole.writeLine("thirdNumber = " + thirdNumber); 
+    
+      if (firstNumber > secondNumber)
+      {
+         if (firstNumber > thirdNumber)
+         {
+            theBiggestOne = firstNumber;
+         }
+         else
+         {
+            theBiggestOne = thirdNumber;
+         }
+      } // second is bigger then first
+      else if (secondNumber > thirdNumber)
+      {
+         theBiggestOne = secondNumber;
+      }
+      else
+      {
+         theBiggestOne = thirdNumber;
+      }
+      
+      return theBiggestOne;
+    }
+
+    jsConsole.writeLine("The biggest number is " + TheBiggestNumber());
+    jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+
+    jsConsole.writeLine("04. Sort 3 real values in descending order using nested if statements.:");
+
+    var firstNumber = 2.3, secondNumber = 54.4, thirdNumber = -10.6;
+    var positionOne, positionTwo, positionThree;
+        
+    if (firstNumber > secondNumber)
+    {
+        if (secondNumber > thirdNumber)
+        {
+            positionOne = firstNumber;
+            positionTwo = secondNumber;
+            positionThree = thirdNumber;
+        }
+        else if (firstNumber > thirdNumber)
+        {
+            positionOne = firstNumber;
+            positionTwo = thirdNumber;
+            positionThree = secondNumber;
+        }
+        else
+        {
+            positionOne = thirdNumber;
+            positionTwo =  firstNumber;
+            positionThree = secondNumber;
+        }
+     }
+    else if (secondNumber > thirdNumber) // second is greater that first
+    {
+        positionOne = secondNumber;
+        if (firstNumber > thirdNumber)
+        {
+            positionTwo = firstNumber;
+            positionThree = thirdNumber;
+        }
+        else
+        {
+            positionTwo = thirdNumber;
+            positionThree = firstNumber;
+        }
+    }
+    else  // third is greater that first
+    {
+        positionOne = thirdNumber;
+        if (firstNumber > secondNumber)
+        {
+            positionTwo = firstNumber;
+            positionThree = secondNumber;
+        }
+        else
+        {
+            positionTwo = secondNumber;
+            positionThree = firstNumber;
+        }
+    }
+
+    jsConsole.writeLine("Descending order is : " + positionOne +", "+ positionTwo + ", " + positionThree);
+	  jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	
+	  jsConsole.writeLine("05. Write script that asks for a digit and depending on the input shows ");
+	  jsConsole.writeLine(" the name of that digit (in English) using a switch statement.");
+
+		var digit = 7;
+
+    // jsConsole.writeLine("Enter digit in range [0,9]: ");
+    
+    switch (digit)
+    {
+        case 0:
+            result = "Zero";
+            break;
+        case 1:
+            result = "One";
+            break;
+        case 2:
+            result = "Two";
+            break;
+        case 3:
+            result = "Three";
+            break;
+        case 4:
+            result = "Four";
+            break;
+        case 5:
+            result = "Five";
+            break;
+        case 6:
+            result = "Six";
+            break;
+        case 7:
+            result = "Seven";
+            break;
+        case 8:
+            result = "Eight";
+            break;
+        case 9:
+            result = "Nine";
+            break;
+        default:
+            result = "Incorrect input. The inputed digit is not in the range.";
+            break;
+    }
+
+    jsConsole.writeLine("The name of the digit 7 is: " + result);    
+		jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	
+	  jsConsole.writeLine("06. Write a script that enters the coefficients a, b and c of ");
+	  jsConsole.writeLine(" a quadratic equation a*x2 + b*x + c = 0 and calculates and prints"); 
+	  jsConsole.writeLine(" its real roots. Note that quadratic equations may have 0, 1 or 2 real roots.");
+
+    var a = 5, b = 10, c = 4, d;
+    var check = false; 
+
+    //jsConsole.writeLine("Enter three real numbers for quadratic equation a*x*x + b*x + c:");
+    
+    d = b * b - 4 * a * c; // discriminant
+
+    if (d < 0)
+    {
+       jsConsole.writeLine("The equation has no real solutions!");
+    }
+    else if (d == 0) // one root
+    {
+       var x1 = (-1 * b) / (2 * a);
+       jsConsole.writeLine("There is only one real root = " + x1);
+    }
+    else
+    {
+       var x1 = 0, x2 = 0;
+       x1 = (-1 * b + Math.sqrt(d)) / (2 * a);
+       x2 = (-1 * b - Math.sqrt(d)) / (2 * a);
+       jsConsole.writeLine("There are two real roots x1 = " + x1 +", x2 = " + x2);
+    }
+
+		jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	
+    jsConsole.writeLine("07. Write a script that finds the greatest of given 5 variables.:");
+
+    function GreaterOfTwo(firstNumber, secondNumber)
+    {
+        var greater = 0;
+        if (firstNumber > secondNumber)
+        {
+            greater = firstNumber;
+        }
+        else
+        {
+            greater = secondNumber;
+        }
+        return greater;
+    }
+
+    var firstNumber = 5, secondNumber = 8, thirdNumber = 3, fourthNumber = 14, fifthNumber = 5, theBiggestOne;
+    
+    jsConsole.writeLine("firstNumber = " + firstNumber);
+    jsConsole.writeLine("secondNumber = " + secondNumber);
+    jsConsole.writeLine("thirdNumber = " + thirdNumber); 
+    jsConsole.writeLine("fourthNumber = " + fourthNumber);
+    jsConsole.writeLine("fifthNumber = " + fifthNumber);
+      
+	  theBiggestOne = GreaterOfTwo(firstNumber, secondNumber);
+    theBiggestOne = GreaterOfTwo(theBiggestOne, thirdNumber);
+    theBiggestOne = GreaterOfTwo(theBiggestOne, fourthNumber);
+    theBiggestOne = GreaterOfTwo(theBiggestOne, fifthNumber);
+
+    jsConsole.writeLine("The biggest number is " + theBiggestOne);
+	  jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	  
+	  jsConsole.writeLine("08. Write a script that converts a number in the range [0...999]");
+	  jsConsole.writeLine(" to a text corresponding to its English pronunciation. Examples ");
+    jsConsole.writeLine(" 0 => Zero");
+	  jsConsole.writeLine(" 273 => Two hundred seventy three");
+	  jsConsole.writeLine(" 400 => Four hundred"); 
+	  jsConsole.writeLine(" 501 => Five hundred and one");
+	  jsConsole.writeLine(" 711 => Seven hundred and eleven");
+
+
+    function ZeroNine(num)
+    {
+      var result;
+      switch (num)
+      {
+        case 0:
+            result = "zero";  break;
+        case 1:
+            result = "one";   break;
+        case 2:
+            result = "two";   break;
+        case 3:
+            result = "three"; break;
+        case 4:
+            result = "four";  break;
+        case 5:
+            result = "five";  break;
+        case 6:
+            result = "six";  break;
+        case 7:
+            result = "seven";  break;
+        case 8:
+            result = "eight";  break;
+        case 9:
+            result = "nine"; break;
+      }
+      return result;
+    }
+
+    function TenNineteen(num)
+    {
+      var result = '';
+      switch (num)
+      {
+          case 10:
+              result = "ten"; break;
+          case 11:
+              result = "eleven"; break;
+          case 12:
+              result = "twelve"; break;
+          case 13:
+              result = "thirteen"; break;
+          case 14:
+              result = "forteen"; break;
+          case 15:
+             result = "fifteen"; break;
+          case 16:
+              result = "sixteen"; break;
+          case 17:
+              result = "seventeen"; break;
+          case 18:
+              result = "eighteen"; break;
+          case 19:
+              result = "nineteen"; break;
+       }
+       return result;
+    }
+
+    function TwentyNinety(num)
+    {
+        var result = '';
+        switch (num)
+        {
+            case 2:
+                result = "twenty"; break;
+            case 3:
+                result = "thirty"; break;
+            case 4:
+                result = "forty"; break;
+            case 5:
+                result = "fifty"; break;
+            case 6:
+                result = "sixty";break;
+            case 7:
+                result = "seventy"; break;
+            case 8:
+                result = "eighty"; break;
+            case 9:
+                result = "ninety"; break;
+        }
+        return result;
+
+    }
+
+   function NumberToString(intInput)
+   {
+      var result = '';
+      if (intInput >= 0 && intInput <= 9)
+      {
+         result = ZeroNine(intInput);
+      }
+      else if (intInput >= 10 && intInput <= 20)
+      {
+          result += TenNineteen(intInput);
+      }
+      else if (intInput >= 21 && intInput <= 999)
+      {
+          var hundreds = Math.floor(intInput / 100);
+          var tenths = intInput % 100 ;
+          var units = tenths % 10;
+       
+          if (hundreds > 0)
+          {
+              result += ZeroNine(hundreds);
+              result += " hundred";
+          }
+          
+          if (tenths > 0)
+          {
+              if (tenths >= 20 && tenths <= 99)
+              {
+                  if (units == 0 && hundreds != 0)
+                  {
+                      result += " and ";
+                  }
+                  else if (hundreds != 0)
+                  {
+                      result += " ";
+                  }
+                  result += TwentyNinety(Math.floor(tenths / 10));
+              }
+              else if (tenths >= 10 && tenths < 20)
+              {
+                  result += " and ";
+                  result += TenNineteen(tenths);
+              }
+          }
+  
+          if ((units > 0 && units < 10) && !(tenths > 10 && tenths < 20))
+          {
+              if (tenths > 0 && tenths < 10)
+              {
+                  result += " and ";
+              }
+              else
+              {
+                  result += " ";
+              }
+              result += ZeroNine(units);
+          }
+  
+      }
+      return result;
+  }
+    
+    jsConsole.writeLine();
+    jsConsole.writeLine("Results");
+    jsConsole.writeLine(" 6 =  " + NumberToString(6));
+    jsConsole.writeLine(" 43 =  " + NumberToString(43));
+    jsConsole.writeLine(" 120 =  " + NumberToString(120));
+    jsConsole.writeLine(" 0 =  " + NumberToString(0));
+    jsConsole.writeLine(" 273 =  " + NumberToString(273));
+    jsConsole.writeLine(" 400 =  " + NumberToString(400));
+    jsConsole.writeLine(" 501 =  " + NumberToString(501));
+    jsConsole.writeLine(" 711 =  " + NumberToString(711));
+	  jsConsole.writeLine();
+	  jsConsole.writeLine("----------------------------------------------------");
+	
+	
+	
+	</script>
+</body>
+</html>

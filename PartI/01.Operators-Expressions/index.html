@@ -1,0 +1,130 @@
+﻿<html>
+<head>
+	<title>operators-expressions-hw</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	
+		var a = 70;
+		var b = 5;
+	
+		jsConsole.writeLine("----------------------------------------------------");
+		jsConsole.writeLine("01. Write an expression that checks if given integer is odd or even: ");
+
+    var odd = 'odd';
+    var even = 'even';
+
+		jsConsole.writeLine("a = " + a + ", b = " + b );
+		jsConsole.writeLine("(a % 2 == 0) ? even : odd  = " + (a % 2 == 0 ? even : odd)); 
+		jsConsole.writeLine("(b % 2 == 0) ? even : odd  = " + (b % 2 == 0 ? even : odd)); 
+		jsConsole.writeLine();
+		jsConsole.writeLine("----------------------------------------------------");
+		
+		jsConsole.writeLine("02. Write a boolean expression that checks for given integer");
+		jsConsole.writeLine("if it can be divided (without remainder) by 7 and 5 in the same time:");
+		jsConsole.writeLine("(a % 35 == 0) = " + (a % 35 == 0));
+		jsConsole.writeLine("(b % 35 == 0) = " + (b % 35 == 0));
+		jsConsole.writeLine();
+		jsConsole.writeLine("----------------------------------------------------");
+		
+		jsConsole.writeLine("03. Write an expression that calculates rectangle’s area ")
+		jsConsole.writeLine("by given width and height:");
+		jsConsole.writeLine("area = (a * b) = " + (a * b));
+		jsConsole.writeLine();
+		jsConsole.writeLine("----------------------------------------------------");
+		
+		jsConsole.writeLine("04. Write an expression that checks for given integer if its ");
+		jsConsole.writeLine("third digit (right-to-left) is 7. E. g. 1732 => true:");
+		
+		var c = 1732;
+
+		jsConsole.writeLine("((c / 100) % 10 == 7) => " + ((c / 100) % 10 == 7) );
+		jsConsole.writeLine();
+		jsConsole.writeLine("----------------------------------------------------");
+		
+		jsConsole.writeLine("05. Write a boolean expression for finding if the bit 3 ");
+    jsConsole.writeLine("(counting from 0) of a given integer is 1 or 0.:");
+    
+    var mask = 1 << 3;
+    var addMask;
+    var input1 = 20;
+    var input2 = 110;
+    
+    addMask = input1 & mask;
+    jsConsole.writeLine("The 3rd bit of " + input1 + " is " + (((addMask >> 3) == 1) ? 1 : 0));
+
+    addMask = input2 & mask;
+    jsConsole.writeLine("The 3rd bit of " + input2 + " is " + (((addMask >> 3) == 1) ? 1 : 0));    
+    jsConsole.writeLine();
+ 		jsConsole.writeLine("----------------------------------------------------");    
+
+    jsConsole.writeLine("06. Write an expression that checks if given print (x,  y) ");
+    jsConsole.writeLine("is within a circle K(O, 5):");
+    
+    var a = 1, b = 3;
+    var radius = 5;
+    var result1 = ( (a * a + b * b) <= (radius * radius) );
+    var result2 = ( (input1 * input1 + input2 * input2) <= (radius * radius) );
+    
+    jsConsole.writeLine("a = " + a + " b = " + b + " radius = " + radius);
+    jsConsole.writeLine( result1 ? "The given co-ordinates are within the circle" : "The given co-ordinates are outside the circle" );
+ 		jsConsole.writeLine();
+ 		jsConsole.writeLine("a = " + input1 + " b = " + input2 + " radius = " + radius);
+    jsConsole.writeLine( result2 ? "The given co-ordinates are within the circle" : "The given co-ordinates are outside the circle" );
+    jsConsole.writeLine();
+ 		jsConsole.writeLine("----------------------------------------------------");    
+		
+		jsConsole.writeLine("07. Write an expression that checks if given positive integer number n");
+		jsConsole.writeLine(" (n ≤ 100) is prime. E.g. 37 is prime.");
+    
+    var num = 37;
+    var divider = 1;
+    var isPrime = true;
+    
+    while (divider < Math.sqrt(num))
+    {
+       divider++;
+       if (num % divider == 0)
+       {
+           jsConsole.writeLine("Divider " + divider);
+           isPrime = false;
+       }          
+    }
+    
+    jsConsole.writeLine("The number " + num + ((isPrime == true) ? " is prime." : " is not prime."));
+    jsConsole.writeLine();
+ 		jsConsole.writeLine("----------------------------------------------------");  
+
+	  jsConsole.writeLine("08. Write an expression that calculates trapezoid's area");
+	  jsConsole.writeLine( "by given sides a and b and height h.");
+		
+		var h = 3, a = 2, b = 4;
+		jsConsole.writeLine("a = " + a + " b = " + b + " h = " + h);
+		jsConsole.writeLine("Trapezoid's area is " + ( ((a + b) / 2) * h ) );
+		jsConsole.writeLine();
+ 		jsConsole.writeLine("----------------------------------------------------");  
+	   
+    jsConsole.writeLine("09. Write an expression that checks for given point (x, y) if it is");
+    jsConsole.writeLine(" within the circle K( (1,1), 3) and ");
+    jsConsole.writeLine(" out of the rectangle R(top=1, left=-1, width=6, height=2).");
+
+    var a = 1, b = 3;
+    var circle = ((a - 1) * (a - 1) + (b - 1) * (b - 1));
+    var inCircle = ( circle <= 9 );
+    var rectangle1 = ((-1 <= a) && (a <= 5));
+    var rectangle2 = ((-1 <= b) && (b <= 1));
+    var inRectangle = ( (-1 <= a) && (a <= 5) && (-1 <= b) && (b <= 1) );
+
+    jsConsole.writeLine("The point (" + a + ", " + b +") is ");
+    jsConsole.writeLine(inCircle ? "within the circle and " : "outside of the circle and ");
+    jsConsole.writeLine(inRectangle ? "within the rectangle." : "outside of the rectangle.");
+		jsConsole.writeLine();
+ 		jsConsole.writeLine("----------------------------------------------------"); 
+	
+	
+	</script>
+</body>
+</html>
