@@ -1,0 +1,109 @@
+﻿<html>
+<head>
+	<title>loops-hw</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="js-console"></div>
+	<script src="scripts/js-console.js"></script>
+	<script>
+	
+		jsConsole.writeLine("----------------------------------------------------");
+		jsConsole.writeLine("01. Write a script that prints all the numbers from 1 to N");
+		jsConsole.writeLine();
+		
+		var n = 10;
+		 jsConsole.writeLine("n = " + n);
+		 for(var i = 1; i <= n; i++)
+		 {
+			jsConsole.writeLine(i);
+		 }
+		 
+		jsConsole.writeLine();
+	    jsConsole.writeLine("----------------------------------------------------");
+    	jsConsole.writeLine();
+		
+		jsConsole.writeLine("02. Write a script that prints all the numbers from 1 to N, ");
+		jsConsole.writeLine(" that are not divisible by 3 and 7 at the same time.");
+	    jsConsole.writeLine();
+		
+		var n = 25;
+		 jsConsole.writeLine("n = " + n);
+		 for(var i = 1; i <= n; i++)
+		 {
+			if((i % 21) != 0)
+			{
+				jsConsole.writeLine(i);
+			}
+		 }
+		
+		
+		jsConsole.writeLine();
+	    jsConsole.writeLine("----------------------------------------------------");
+        jsConsole.writeLine();
+		
+		jsConsole.writeLine("03. Write a script that finds the max and min number from a ");
+		jsConsole.writeLine(" sequence of numbers");
+	    jsConsole.writeLine();
+			
+	    var arr = [2, 5, 12, 56, 23];
+		for ( var i in arr)
+		{
+			jsConsole.writeLine("arr[" + i + "] = " + arr[i]);
+		}
+		 
+		var min = arr[0];
+		var max = arr[0];
+			
+		for(var i = 1; i < arr.length; i++)
+		{
+			if(min > arr[i])
+			{
+				min = arr[i];
+			}
+			if(max < arr[i])
+			{
+				max = arr[i];
+			}
+		}
+		jsConsole.writeLine("min = " + min);
+		jsConsole.writeLine("max = " + max);
+		 
+		jsConsole.writeLine();
+	    jsConsole.writeLine("----------------------------------------------------");
+        jsConsole.writeLine();
+		
+		jsConsole.writeLine("04. Write a script that finds the lexicographically smallest ");
+		jsConsole.writeLine(" and largest property in document, window and navigator objects.");
+		jsConsole.writeLine();
+   
+        //var arrDocument = document.getElementsByTag
+		var arrAll = [window, navigator, document];	
+
+		for(var i = 0; i<3; i++)
+		{
+			var result = "";
+			
+			jsConsole.writeLine(arrAll[i]);
+			jsConsole.writeLine("==============");
+			
+			for(var part in arrAll[i])
+			{
+				result += part + ", ";
+			}
+			var arrResult = result.split(", ");
+			arrResult.sort();	
+			
+			jsConsole.writeLine("Smallest element: " + arrResult[1]);
+			jsConsole.writeLine("Largest: " + arrResult[arrResult.length-1]);
+			jsConsole.writeLine();
+        }
+		
+	    jsConsole.writeLine();
+	    jsConsole.writeLine("----------------------------------------------------");
+	
+	
+	
+	</script>
+</body>
+</html>
